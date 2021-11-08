@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  background: center/cover no-repeat url('./images/Body_BG.png');
+  height: 100vh;
 }
 
 .App-logo {
