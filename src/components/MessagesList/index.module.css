@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   width: var(--max-container-width);
+  padding-bottom: 20vh;
 }
 
 .message__container {
