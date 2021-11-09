@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, KeyboardEventHandler, useState } from "react";
 import styles from "./index.module.css";
 import { EnterNameProps } from "./types";
 
@@ -17,6 +17,11 @@ export default function EnterNameContainer ({
     handleEditName()
   }
 
+  const handlePressInput:KeyboardEventHandler<HTMLInputElement> = ({ key }) => {
+    if (key === "Enter") {
+      handleNewName()
+    }
+  }
   return (
     <div className={styles.edit_name__container}>
       <input
@@ -24,6 +29,7 @@ export default function EnterNameContainer ({
         placeholder="Message"
         value={name}
         onChange={handleNameChange}
+        onKeyPress={handlePressInput}
       />
       <button
         onClick={handleNewName}

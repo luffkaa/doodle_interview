@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, KeyboardEventHandler } from "react";
 import { HandlingMessageProps } from "../types";
 import styles from "./index.module.css";
 
@@ -37,6 +37,12 @@ export default function SendMessageContainer({
     }
   }
 
+  const handlePressInput:KeyboardEventHandler<HTMLInputElement> = ({ key }) => {
+    if (key === "Enter") {
+      sendMessage()
+    }
+  }
+
   return (
     <div className={styles.send_message__container}>
       <div className={styles.send_message}>
@@ -46,6 +52,7 @@ export default function SendMessageContainer({
           placeholder="Message"
           value={message}
           onChange={handleMessage}
+          onKeyPress={handlePressInput}
         />
         <button
           className={styles.send_message__button}
