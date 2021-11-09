@@ -1,0 +1,48 @@
+.send_message__container {
+  background-color: steelblue;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.send_message {
+  width: var(--max-container-width);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 8px;
+}
+
+.send_message__input,
+.send_message__button {
+  box-sizing: border-box;
+  height: 8vh;
+  border-radius: 5px;
+  border: none;
+}
+
+.send_message__input {
+  width: 60vw;
+  outline-color:cornflowerblue;
+  text-indent: 3px;
+}
+
+.send_message__button {
+  padding: 0 3vw;
+  background-color:coral;
+  color: white;
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .send_message__input {
+    flex: 1 0 auto;
+  }
+}
+
+
+

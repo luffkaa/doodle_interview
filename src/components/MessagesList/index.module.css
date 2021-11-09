@@ -1,0 +1,4 @@
+.messages_list__container {
+  flex: 1 0 auto;
+  width: var(--max-container-width);
+}
