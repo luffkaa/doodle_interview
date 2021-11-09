@@ -4,9 +4,14 @@ import { Header, MessagesListContainer, SendMessageContainer } from './component
 
 function App() {
   const [currentAuthor, setCurrentAuthor] = useState<string>('Tom');
+  const [isMessageSent, setIsMessageSent] = useState<boolean>(false)
 
   const handleCurrentAuthor = (name: string) => {
     setCurrentAuthor(name)
+  }
+  
+  const handleMessageSent = () => {
+    setIsMessageSent(!isMessageSent)
   }
 
   return (
@@ -15,8 +20,14 @@ function App() {
         currentAuthor={currentAuthor}
         handleCurrentAuthor={handleCurrentAuthor}
       />
-      <MessagesListContainer currentAuthor={currentAuthor}/>
-      <SendMessageContainer currentAuthor={currentAuthor}/>
+      <MessagesListContainer
+        currentAuthor={currentAuthor}
+        handleMessageSent={handleMessageSent}
+      />
+      <SendMessageContainer 
+        currentAuthor={currentAuthor} 
+        handleMessageSent={handleMessageSent}
+      />
     </div>
   );
 }

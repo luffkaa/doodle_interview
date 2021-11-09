@@ -1,8 +1,11 @@
 import { useState, ChangeEvent } from "react";
-import { GlobalProps } from "../types";
+import { HandlingMessageProps } from "../types";
 import styles from "./index.module.css";
 
-export default function SendMessageContainer({ currentAuthor }: GlobalProps) {
+export default function SendMessageContainer({
+  currentAuthor,
+  handleMessageSent,
+}: HandlingMessageProps) {
   const [message, setMessage] = useState<string>('');
 
   const handleMessage = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +30,7 @@ export default function SendMessageContainer({ currentAuthor }: GlobalProps) {
       });
       const json = await response.json();
       console.log('Success:', JSON.stringify(json));
+      handleMessageSent()
 
     } catch (e) {
       console.error(e)

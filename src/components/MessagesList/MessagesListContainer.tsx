@@ -1,10 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
-import { GlobalProps } from "../types";
+import { HandlingMessageProps } from "../types";
 import styles from "./index.module.css";
 import MessageItem from "./MessageItem";
 import { MessageProps } from "./types";
 
-export default function MessagesListContainer({ currentAuthor }: GlobalProps) {
+export default function MessagesListContainer({
+  currentAuthor,
+  handleMessageSent,
+  isMessageSent,
+}: HandlingMessageProps) {
   const [allMessages, setAllMessages] = useState<MessageProps[]>()
 
   const getMessages = useCallback( async () => {
@@ -16,17 +20,24 @@ export default function MessagesListContainer({ currentAuthor }: GlobalProps) {
       }
 
       const result = await response.json()
-      setAllMessages(result)
+      setAllMessages(result);
+      handleMessageSent()
 
     } catch (e) {
       console.error(e)
     }
 
-  }, [])
+  }, [handleMessageSent])
 
   useEffect(() => {
     getMessages()
   }, [getMessages])
+
+  useEffect(() => {
+    if (isMessageSent) {
+      getMessages()
+    }
+  }, [getMessages, isMessageSent])
 
   return (
     <div
