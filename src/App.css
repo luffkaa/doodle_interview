@@ -3,6 +3,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: center/cover no-repeat url('./images/Body_BG.png');
-  height: 100vh;
+  background: center/auto no-repeat fixed url('./images/Body_BG.png');
 }
