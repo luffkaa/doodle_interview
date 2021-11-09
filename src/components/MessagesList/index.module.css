@@ -1,4 +1,41 @@
 .messages_list__container {
   flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
   width: var(--max-container-width);
+}
+
+.message__container {
+  padding: 16px;
+  margin: 8px 24px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  width: fit-content;
+  text-align: left;
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.message__container_author {
+  background-color:lightyellow;
+  align-self: flex-end;
+}
+
+.message_author,
+.message_time {
+  color: grey;
+  font-size: 0.8em;
+}
+
+.message_author,
+.message_time,
+.message_message {
+  margin: 0;
+  padding: 2px 0;
+}
+
+.message__container_author > .message_time {
+  align-self: flex-end;
 }

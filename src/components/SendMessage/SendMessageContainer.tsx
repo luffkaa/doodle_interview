@@ -1,18 +1,17 @@
 import { useState, ChangeEvent } from "react";
+import { GlobalProps } from "../types";
 import styles from "./index.module.css";
 
-export default function SendMessageContainer() {
+export default function SendMessageContainer({ currentAuthor }: GlobalProps) {
   const [message, setMessage] = useState<string>('');
-  const [author, setAuthor] = useState<string>('Pam');
 
   const handleMessage = (e: ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value)
   }
-  console.log(message)
 
   const sendMessage = async () => {
     const data = {
-      "author": author,
+      "author": currentAuthor,
       "message": message,
     }
 
